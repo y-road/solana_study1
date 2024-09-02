@@ -1,3 +1,5 @@
+// #Cryptography and the Solana Network
+
 // 1. Keypair 생성
 // import { Keypair } from "@solana/web3.js";
 // const keypair = Keypair.generate();
@@ -16,3 +18,5 @@ const keypair = getKeypairFromEnvironment("SECRET_KEY");
 console.log(
   `✅ Finished! We've loaded our secret key securely, using an env file!`,
 );
+
+console.log(keypair.publicKey);
