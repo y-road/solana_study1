@@ -15,22 +15,22 @@
 
 
 // 2. 친구의 account 잔액 확인
-// import { Connection, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
+import { Connection, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 
-// const suppliedPublickey = process.argv[2];
-// if (!suppliedPublickey) {
-//     throw new Error("Provide a public key to check the balance of!");
-// }
+const suppliedPublickey = process.argv[2];
+if (!suppliedPublickey) {
+    throw new Error("Provide a public key to check the balance of!");
+}
 
-// const connection = new Connection("https://api.devnet.solana.com", "confirmed");
-// const publicKey = new PublicKey(suppliedPublickey);
-// const balanceInLamports = await connection.getBalance(publicKey);
+const connection = new Connection("https://api.devnet.solana.com", "confirmed");
+const publicKey = new PublicKey(suppliedPublickey);
+const balanceInLamports = await connection.getBalance(publicKey);
 
-// const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
+const balanceInSOL = balanceInLamports; // / LAMPORTS_PER_SOL;
  
-// console.log(
-//   `✅ Finished! The balance for the wallet at address ${publicKey} is ${balanceInSOL}!`,
-// );
+console.log(
+  `✅ Finished! The balance for the wallet at address ${publicKey} is ${balanceInSOL}!`,
+);
 
 
 // 3. 챌린지 1 _ 유효하지 않은 주소 값에 대한 예외 처리 추가
@@ -60,26 +60,26 @@
 
 
 // 4. mainNet의 유명한 Solana 지갑 잔액 확인 -> toly: GgJJRwLg9NzFQ97o1CJLGLp1KLSUMBwFc6eQNVEr4fbW has 57.215098494 SOL
-import { Connection, LAMPORTS_PER_SOL, PublicKey, clusterApiUrl } from "@solana/web3.js";
+// import { Connection, LAMPORTS_PER_SOL, PublicKey, clusterApiUrl } from "@solana/web3.js";
 
-const suppliedPublickey = process.argv[2];
-if (!suppliedPublickey) {
-    throw new Error("Provide a public key to check the balance of!");
-}
+// const suppliedPublickey = process.argv[2];
+// if (!suppliedPublickey) {
+//     throw new Error("Provide a public key to check the balance of!");
+// }
 
-const connection = new Connection(clusterApiUrl("mainnet-beta")); // mainnet-beta, testnet, devnet
+// const connection = new Connection(clusterApiUrl("mainnet-beta")); // mainnet-beta, testnet, devnet
 
-let publicKey;
-try {
-    publicKey = new PublicKey(suppliedPublickey);
-} catch (error) {
-    throw new Error("Invalid public key format. Please provide a valid public key.");
-}
+// let publicKey;
+// try {
+//     publicKey = new PublicKey(suppliedPublickey);
+// } catch (error) {
+//     throw new Error("Invalid public key format. Please provide a valid public key.");
+// }
 
-const balanceInLamports = await connection.getBalance(publicKey);
+// const balanceInLamports = await connection.getBalance(publicKey);
 
-const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
+// const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
  
-console.log(
-  `✅ Finished! The balance for the wallet at address ${publicKey} is ${balanceInSOL}!`,
-);
+// console.log(
+//   `✅ Finished! The balance for the wallet at address ${publicKey} is ${balanceInSOL}!`,
+// );
